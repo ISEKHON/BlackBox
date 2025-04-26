@@ -17,11 +17,11 @@ android {
     }
 
     signingConfigs {
-        release {
-            storeFile file("release.jks")
-            storePassword "BlackBox"
-            keyAlias "BlackBox"
-            keyPassword "BlackBox"
+        faultyxd {
+            storeFile file('Faulty_xD.jks')
+            storePassword 'kon.faulty@23'
+            keyAlias 'Faulty_xD'
+            keyPassword 'kon.faulty23'
         }
     }
 
@@ -29,14 +29,15 @@ android {
         debug {
             debuggable true
             jniDebuggable true
-
+            
+            signingConfig signingConfigs.faultyxd
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
 
         release {
             debuggable false
 
-            signingConfig signingConfigs.release
+            signingConfig signingConfigs.faultyxd
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
