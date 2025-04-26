@@ -4,10 +4,10 @@ plugins {
 
 android {
     compileSdk rootProject.ext.compileSdk
-    namespace 'game.blaster'
+    namespace 'xyz.black.box'
 
     defaultConfig {
-        applicationId "game.blaster"
+        applicationId "xyz.black.box"
         minSdk rootProject.ext.minSdk
         targetSdk rootProject.ext.targetSdk
         versionCode rootProject.ext.versionCode
