@@ -1,5 +1,4 @@
 ![xx](assets/banner.png)
-### [中文说明](README_ZH.md)
 
 # Virtual Engine · BlackBox
 > The only people who have anything to fear from free software are those whose products are worth even less. 
