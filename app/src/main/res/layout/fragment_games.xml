@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+        android:id="@+id/swipe_refresh_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="10.0dip">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="horizontal">
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:cardCornerRadius="10dp">
+                <ImageView
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:src="@color/bg_icon_window"/>
+                    </androidx.cardview.widget.CardView>
+                <TextView
+                    style="@style/Theme.CheatUIDev.MainActivity.SummaryValueText"
+                    android:layout_weight="1"
+                    android:text="BGMI" />
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/cloneBGMI"
+                    android:layout_width="wrap_content"
+                    android:textSize="10dp"
+                    android:layout_height="wrap_content"
+                    style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                    android:text="CLONE"/>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="horizontal">
+                <androidx.cardview.widget.CardView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:cardCornerRadius="10dp">
+                    <ImageView
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:src="@color/bg_icon_window"/>
+                </androidx.cardview.widget.CardView>
+                <TextView
+                    style="@style/Theme.CheatUIDev.MainActivity.SummaryValueText"
+                    android:layout_weight="1"
+                    android:text="Twitter" />
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/cloneTwitter"
+                    android:layout_width="wrap_content"
+                    android:textSize="10dp"
+                    android:layout_height="wrap_content"
+                    style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                    android:text="CLONE"/>
+            </LinearLayout>
+
+
+        </LinearLayout>
+    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:text="@string/empty"
+        android:visibility="gone" />
+</FrameLayout>

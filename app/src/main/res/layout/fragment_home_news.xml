@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:padding="10.0dip"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <LinearLayout
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <ImageView
+            android:src="@drawable/ic_announcement"
+            style="@style/Theme.CheatUIDev.MainActivity.CategoryIcon" />
+        <TextView
+            android:text="@string/latest_news"			
+            style="@style/Theme.CheatUIDev.MainActivity.CategoryTitle" />
+    </LinearLayout>
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:orientation="vertical"
+            android:id="@+id/announcement_container"
+            android:background="?selectableItemBackground"
+            android:layout_width="0.0dip"
+            android:layout_height="wrap_content"
+            android:layout_weight="2.0">
+            <TextView
+                android:textAppearance="?textAppearanceSubtitle1"
+                android:textStyle="bold"
+				android:text="IMPORTANT: 1.0.1 Update Released \n You must update to be able to continue using it!"
+                android:ellipsize="end"
+                android:id="@+id/announcement_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:maxLines="2" />
+            <TextView
+                android:textAppearance="?textAppearanceBody2"
+                android:ellipsize="end"
+                android:id="@+id/announcement_content"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+				android:text="Hey Game Blaster users. \n \nWe have released 1.0.1 update for Battleground mobile india"
+                android:maxLines="10" />
+            <TextView
+                android:textAppearance="?textAppearanceCaption"
+                android:textStyle="italic"
+                android:id="@+id/read_more_label"				
+                android:visibility="gone"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/click_to_read_more" />
+        </LinearLayout>
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="0.0dip"
+            android:layout_height="wrap_content"
+            android:layout_weight="1.0">
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/forum_button"
+                android:text="@string/forum"
+                app:icon="@drawable/ic_web"
+                style="@style/Theme.CheatUIDev.MainActivity.ActionButton" />
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/telegram_channel_button"
+                android:text="@string/action_telegram_channel"
+                app:icon="@drawable/ic_telegram"
+                style="@style/Theme.CheatUIDev.MainActivity.ActionButton" />
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>
