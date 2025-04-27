@@ -5,6 +5,7 @@ import android.content.Context;
 
 import top.niunaijun.bcore.BlackBoxCore;
 import top.niunaijun.bcore.app.configuration.ClientConfiguration;
+import xyz.black.box.utils.CrashLogger;
 
 public class App extends Application {
 
@@ -12,6 +13,7 @@ public class App extends Application {
     public void onCreate() {
         super.onCreate();
         BlackBoxCore.get().doCreate();
+        CrashLogger.init(this);
     }
 
     @Override
