@@ -13,11 +13,10 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
 
-import com.google.android.material.appbar.MaterialToolbar;
 import com.google.android.material.button.MaterialButton;
+import com.google.android.material.color.MaterialColors;
 import com.google.android.material.switchmaterial.SwitchMaterial;
 import com.google.android.material.textfield.TextInputEditText;
-import com.google.android.material.color.MaterialColors;
 
 import top.niunaijun.blackbox.BlackBoxCore;
 import xyz.black.box.databinding.ActivityMainBinding;
@@ -34,10 +33,10 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        
+
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
-        
+
         // Set status bar color to match toolbar
         Window window = getWindow();
         window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
@@ -52,7 +51,6 @@ public class MainActivity extends AppCompatActivity {
         MaterialButton btnUninstall = binding.btnUninstall;
         TextInputEditText etPackageName = binding.etPackageName;
         SwitchMaterial switchGms = binding.switchGms;
-        TextView tvAppStatus = binding.tvAppStatus;
 
         // Update BGMI button state
         updateButtonState(btnBgmi, BGMI);
@@ -113,7 +111,7 @@ public class MainActivity extends AppCompatActivity {
                 Toast.makeText(this, "Please enter a package name", Toast.LENGTH_SHORT).show();
                 return;
             }
-            
+
             boolean isInstalled = BlackBoxCore.get().isInstalled(currentPackageName, 0);
             if (isInstalled) {
                 // Launch the app if it's installed
@@ -140,12 +138,12 @@ public class MainActivity extends AppCompatActivity {
                 Toast.makeText(this, "Please enter a package name", Toast.LENGTH_SHORT).show();
                 return;
             }
-            
+
             if (!BlackBoxCore.get().isInstalled(currentPackageName, 0)) {
                 Toast.makeText(this, "App is not installed", Toast.LENGTH_SHORT).show();
                 return;
             }
-            
+
             try {
                 BlackBoxCore.get().clearPackage(currentPackageName, 0);
                 Toast.makeText(this, "App data cleared successfully", Toast.LENGTH_SHORT).show();
@@ -163,7 +161,7 @@ public class MainActivity extends AppCompatActivity {
             try {
                 BlackBoxCore.get().uninstallPackageAsUser(currentPackageName, 0);
                 updateCustomAppState(currentPackageName);
-                
+
                 // Check if BGMI or X was uninstalled and update their buttons
                 if (currentPackageName.equals(BGMI)) {
                     updateButtonState(btnBgmi, BGMI);
@@ -171,7 +169,7 @@ public class MainActivity extends AppCompatActivity {
                 if (currentPackageName.equals(X)) {
                     updateButtonState(btnX, X);
                 }
-                
+
                 Toast.makeText(this, "App uninstalled successfully", Toast.LENGTH_SHORT).show();
             } catch (Exception e) {
                 Toast.makeText(this, "Failed to uninstall app: " + e.getMessage(), Toast.LENGTH_SHORT).show();

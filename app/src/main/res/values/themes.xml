@@ -3,9 +3,7 @@
     <style name="Base.Theme.BlacKBoxTheme" parent="Theme.Material3.DynamicColors.DayNight">
         <!-- Customize your light theme here. -->
         <item name="android:statusBarColor">@android:color/transparent</item>
-        <item name="android:navigationBarColor">?attr/colorPrimaryContainer</item>
         <item name="android:windowLightStatusBar">true</item>
-        <item name="android:windowLightNavigationBar">true</item>
         <item name="android:windowTranslucentStatus">true</item>
     </style>
 
