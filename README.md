@@ -1,39 +1,33 @@
 ![xx](assets/banner.png)
-
 # Virtual Engine · BlackBox
 > The only people who have anything to fear from free software are those whose products are worth even less. 
 >
 > <p align="right">——David Emery</p>
 
+
 ![](https://img.shields.io/badge/language-java-brightgreen.svg)
 
-BlackBox is a virtual engine, it can clone and run virtual application on Android, users don't have to install APK file to run the application on devices. BlackBox control all virtual applications, so you can do anything you want by using BlackBox.
-
-## Discussion
-[Telegram](https://t.me/blackboxing)
+BlackBox is a virtual engine, it can clone and run virtual application on Android,  users don't have to install APK file to run the application on devices. BlackBox control all virtual applications, so you can do anything you want by using BlackBox.
 
 ## Support
-Currently we don't consider supporting Android 4.x, it supports Android 5.0 ～ 13.0.
+Currently we don't consider supporting Android 4.x, it supports Android 5.0 ～ 12.0.
 
 If conditions permit, downgrade targetSdkVersion to 28 or below for better compatibility.
 
-***Stability has not been tested extensively and is for learning and communication purposes only. Please do not use for other purposes***
+***Stability has not been tested extensively and is for learning and communication purposes only Please do not use for other purposes***
 
-## API
-- [BlackBoxCore](BlackBoxCore)
-- [BAccountManager](BAccountManager)
-- [BActivityManager](BActivityManager)
-- [BJobManager](BJobManager)
-- [BlackManager](BlackManager)
-- [BLocationManager](BLocationManager)
-- [BNotificationManager](BNotificationManager)
-- [BPackageManager](BPackageManager)
-- [BStorageManager](BStorageManager)
-- [BUserManager](BUserManager)
-- [BXposedManager](BXposedManager)
+## Release
+Stable version and Canary build version
+- Stable version: Stable version is verified and released by administrators. [Download](https://github.com/FBlackBox/BlackBox/releases)
+- Canary build version: Canary build version is compiled automatically by Github Actions, it has the newest features, but it may have some bugs which we have not found. [Download](https://github.com/AutoBlackBox/BlackBox/tags)
+
+## Special Instruction
+
+This project distinguishes between 32-bit and 64-bit, it was compiled to 2 different demos. If you can not find your target in application list, please use another architecture.
 
 ## Usage
 ### Step 1.Add initialized code in the Application
+
 ```java
     @Override
     protected void attachBaseContext(Context base) {
@@ -74,15 +68,6 @@ If conditions permit, downgrade targetSdkVersion to 28 or below for better compa
 ### App Cloner
 <img src="assets/multiw.gif" width="50%">
 
-### Fake Location
-Fake location base theory: forbid WPS(Wi-Fi Positioning System) and LBS(MPS), only provide modified GPS location server.
-
-### Fake Device Info
-Modify device info in source code, ui isn't available
-
-* Xiaomi device tested successfully.
-* Huawei device tested failed, it need to be enhanced.
-
 ### API
 #### Get application list that were installed in BlackBox
 ```java
@@ -98,40 +83,42 @@ Modify device info in source code, ui isn't available
 ```
 If you want to perform more operations, please refer to the source code.
 
+
 #### Xposed Support
 - BlackBox has supported Xposed Modules.
 - BlackBox has hidden Xposed Framework, [Xposed Checker](https://www.coolapk.com/apk/190247) and [XposedDetector](https://github.com/vvb2060/XposedDetector) can't detect it.
 
+
 ## How to contribute to this project 
 ### This project is divided into two modules
 - app module, it is used to achieve UI and deal with user action.
-- BCore module, this module is the core of BlackBox, it is used to achieve all functionalities.
+- Bcore module, this module is the core of BlackBox, it is used to achieve all functionalities.
 
 You can contribute to this project by making pull requests.
 ### About pull requests
-1. Both Chinese and English commit message/comment are ok, but you should elaborate on your code.
+1. Both Chinese and English commit message / comment are ok,  but you should elaborate on your code.
 2. Please follow the code style and design pattern of this project.
 3. Welcome everybody take part in this project.
 
-## Known Issues
-* Death process restarting produce duplicated activities and process. Temporary solution: kill them all and restart application manually.
-* FireFox crashed when inputting website url
-* Crashed when getType of content provider calling
-* It appeared that an application has multi process of each activity, it should be a process containing activities of an application
-* Static broadcast failed test.
+## Plan
+ - More Service API virtualization.
+ - Provide more interfaces for developers (virtual location,  process injection, etc).
 
 ## Sponsorship
-This project is a free open source project, routine maintenance consumes a lot of time and effort. If you want to speed up the progress or buy the author a cup of coffee.
+This project is a free open source project , routine maintenance consumes a lot of time and effort . If you want to speed up the progress or buy the author a cup of coffee.
 
-- BTC: 1HhctWiQ6dBQomKPJjty3P1wL9CuK9eCqM
-- USDT（ERC20）: 0x408336bcaef0c5eb11772024a06079ab2e14e6cd
+- BTC: 3FCo9QtaSbGMhmZYzvL4XUoJUUxZeSdha4
+- USDT(TRC20): TDzBj9eV1Cdmmj9xd5Y1YLsQqC8zVgi7yd
 
 ## Credits
 - [VirtualApp](https://github.com/asLody/VirtualApp)
-- [AndroidHiddenApiBypass](https://github.com/LSPosed/AndroidHiddenApiBypass)
+- [VirtualAPK](https://github.com/didi/VirtualAPK)
+- [BlackReflection](https://github.com/CodingGay/BlackReflection)
+- [FreeReflection](https://github.com/tiann/FreeReflection)
 - [Pine](https://github.com/canyie/pine)
 
 ### License
+
 > ```
 > Copyright 2022 BlackBox
 >
