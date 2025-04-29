@@ -242,8 +242,6 @@ public class IActivityManagerProxy extends ClassInvocationStub {
         String resolvedType = (String) args[3];
         IServiceConnection connection = (IServiceConnection) args[4];
 
-        //int flags = MethodParameterUtils.toInt(args[5]);
-
         int userId = intent.getIntExtra("_B_|_UserId", -1);
         userId = userId == -1 ? BActivityThread.getUserId() : userId;
         ResolveInfo resolveInfo = BlackBoxCore.getBPackageManager().resolveService(intent, 0, resolvedType, userId);
@@ -265,9 +263,15 @@ public class IActivityManagerProxy extends ClassInvocationStub {
                 }
             }
 
-            //Log.d(TAG,"Intent:" + intent + "-->" + "proxyIntent:" + proxyIntent + ",flag:" + intent.getFlags() + "proxyFlag:" + proxyIntent.getFlags());
             if(Objects.requireNonNull(proxyIntent.getComponent()).getPackageName().equals(BlackBoxCore.getHostPkg())){
-                int flags = (int) args[5];
+                // Handle both Long and Integer flags
+                Object flagsObj = args[5];
+                int flags;
+                if (flagsObj instanceof Long) {
+                    flags = ((Long) flagsObj).intValue();
+                } else {
+                    flags = (int) flagsObj;
+                }
                 flags &= ~Context.BIND_EXTERNAL_SERVICE;
                 args[5] = flags;
             }
