@@ -17,6 +17,7 @@
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:fillViewport="true"
         app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
         <LinearLayout
@@ -25,10 +26,11 @@
             android:orientation="vertical"
             android:padding="16dp">
 
+            <!-- Pre-installed Apps Section -->
             <com.google.android.material.card.MaterialCardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="16dp"
+                android:layout_marginBottom="24dp"
                 app:cardElevation="4dp">
 
                 <LinearLayout
@@ -40,17 +42,17 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Pre installed"
+                        android:text="Pre-installed Apps"
                         android:textSize="18sp"
                         android:textStyle="bold"
-                        android:layout_marginBottom="8dp"/>
+                        android:layout_marginBottom="16dp"/>
 
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:orientation="horizontal"
                         android:gravity="center_vertical"
-                        android:layout_marginBottom="8dp">
+                        android:layout_marginBottom="16dp">
 
                         <TextView
                             android:layout_width="0dp"
@@ -64,6 +66,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="Install"
+                            app:icon="@android:drawable/ic_menu_save"
                             style="@style/Widget.Material3.Button"/>
 
                     </LinearLayout>
@@ -86,6 +89,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="Install"
+                            app:icon="@android:drawable/ic_menu_save"
                             style="@style/Widget.Material3.Button"/>
 
                     </LinearLayout>
@@ -93,10 +97,11 @@
                 </LinearLayout>
             </com.google.android.material.card.MaterialCardView>
 
+            <!-- Custom App Installation Section -->
             <com.google.android.material.card.MaterialCardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="16dp"
+                android:layout_marginBottom="24dp"
                 app:cardElevation="4dp">
 
                 <LinearLayout
@@ -111,19 +116,21 @@
                         android:text="Custom App Installation"
                         android:textSize="18sp"
                         android:textStyle="bold"
-                        android:layout_marginBottom="8dp"/>
+                        android:layout_marginBottom="16dp"/>
 
                     <com.google.android.material.textfield.TextInputLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="16dp"
-                        android:hint="Package Name">
+                        android:hint="Package Name"
+                        style="@style/Widget.Material3.TextInputLayout.OutlinedBox">
 
                         <com.google.android.material.textfield.TextInputEditText
                             android:id="@+id/et_package_name"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:inputType="text"/>
+                            android:inputType="text"
+                            android:maxLines="1"/>
 
                     </com.google.android.material.textfield.TextInputLayout>
 
@@ -135,13 +142,14 @@
                         android:textSize="14sp"
                         android:textColor="?attr/colorError"
                         android:gravity="center"
-                        android:layout_marginBottom="8dp"/>
+                        android:layout_marginBottom="16dp"/>
 
                     <com.google.android.material.button.MaterialButton
                         android:id="@+id/btn_install"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="Install App"
+                        app:icon="@android:drawable/ic_menu_save"
                         style="@style/Widget.Material3.Button"
                         android:layout_marginBottom="8dp"/>
 
@@ -151,6 +159,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="8dp"
                         android:text="Clear App Data"
+                        app:icon="@android:drawable/ic_menu_delete"
                         style="@style/Widget.Material3.Button.OutlinedButton"/>
 
                     <com.google.android.material.button.MaterialButton
@@ -158,11 +167,13 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="Uninstall App"
+                        app:icon="@android:drawable/ic_menu_delete"
                         style="@style/Widget.Material3.Button.OutlinedButton"/>
 
                 </LinearLayout>
             </com.google.android.material.card.MaterialCardView>
 
+            <!-- GMS Services Section -->
             <com.google.android.material.card.MaterialCardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -180,7 +191,7 @@
                         android:text="GMS Services"
                         android:textSize="18sp"
                         android:textStyle="bold"
-                        android:layout_marginBottom="8dp"/>
+                        android:layout_marginBottom="16dp"/>
 
                     <LinearLayout
                         android:layout_width="match_parent"
