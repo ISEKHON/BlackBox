@@ -3,13 +3,13 @@ plugins {
 }
 
 android {
-    compileSdk rootProject.ext.compileSdk
+    compileSdk rootProject.ext.compileSdkVersion
     namespace 'xyz.black.box'
 
     defaultConfig {
         applicationId "xyz.black.box"
-        minSdk rootProject.ext.minSdk
-        targetSdk rootProject.ext.targetSdk
+        minSdk rootProject.ext.minSdkVersion
+        targetSdk rootProject.ext.targetSdkVersion
         versionCode rootProject.ext.versionCode
         versionName rootProject.ext.versionName
 

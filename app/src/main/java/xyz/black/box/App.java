@@ -3,8 +3,9 @@ package xyz.black.box;
 import android.app.Application;
 import android.content.Context;
 
-import top.niunaijun.bcore.BlackBoxCore;
-import top.niunaijun.bcore.app.configuration.ClientConfiguration;
+
+import top.niunaijun.blackbox.BlackBoxCore;
+import top.niunaijun.blackbox.app.configuration.ClientConfiguration;
 import xyz.black.box.utils.CrashLogger;
 
 public class App extends Application {
