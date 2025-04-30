@@ -42,21 +42,33 @@ public class BJobManagerService extends IBJobManagerService.Stub implements ISys
 
     @Override
     public JobInfo schedule(JobInfo info, int userId) throws RemoteException {
+        if (info == null) {
+            throw new RemoteException("JobInfo cannot be null");
+        }
+
         ComponentName componentName = info.getService();
+        if (componentName == null) {
+            throw new RemoteException("JobInfo service component cannot be null");
+        }
+
         Intent intent = new Intent();
         intent.setComponent(componentName);
         ResolveInfo resolveInfo = BPackageManagerService.get().resolveService(intent, PackageManager.GET_META_DATA, null, userId);
         if (resolveInfo == null) {
             return info;
         }
+
         ServiceInfo serviceInfo = resolveInfo.serviceInfo;
+        if (serviceInfo == null) {
+            return info;
+        }
+
         ProcessRecord processRecord = BProcessManagerService.get().findProcessRecord(serviceInfo.packageName, serviceInfo.processName, userId);
         if (processRecord == null) {
             processRecord = BProcessManagerService.get().
                     startProcessLocked(serviceInfo.packageName, serviceInfo.processName, userId, -1, Binder.getCallingPid());
             if (processRecord == null) {
-                throw new RuntimeException(
-                        "Unable to create Process " + serviceInfo.processName);
+                throw new RemoteException("Unable to create Process " + serviceInfo.processName);
             }
         }
         return scheduleJob(processRecord, info, serviceInfo);

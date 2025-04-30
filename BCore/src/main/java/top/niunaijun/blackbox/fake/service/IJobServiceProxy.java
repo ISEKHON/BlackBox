@@ -44,6 +44,9 @@ public class IJobServiceProxy extends BinderInvocationStub {
     public static class Schedule extends MethodHook {
         @Override
         protected Object hook(Object who, Method method, Object[] args) throws Throwable {
+            if (args == null || args.length == 0 || args[0] == null) {
+                throw new IllegalArgumentException("JobInfo cannot be null");
+            }
             JobInfo jobInfo = (JobInfo) args[0];
             JobInfo proxyJobInfo = BlackBoxCore.getBJobManager()
                     .schedule(jobInfo);
@@ -76,6 +79,9 @@ public class IJobServiceProxy extends BinderInvocationStub {
     public static class Enqueue extends MethodHook {
         @Override
         protected Object hook(Object who, Method method, Object[] args) throws Throwable {
+            if (args == null || args.length == 0 || args[0] == null) {
+                throw new IllegalArgumentException("JobInfo cannot be null");
+            }
             JobInfo jobInfo = (JobInfo) args[0];
             JobInfo proxyJobInfo = BlackBoxCore.getBJobManager()
                     .schedule(jobInfo);
