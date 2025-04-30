@@ -13,14 +13,7 @@ import top.niunaijun.blackbox.core.system.pm.installer.RemoveUserExecutor;
 import top.niunaijun.blackbox.entity.pm.InstallOption;
 import top.niunaijun.blackbox.utils.Slog;
 
-/**
- * Created by Milk on 4/21/21.
- * * ∧＿∧
- * (`･ω･∥
- * 丶　つ０
- * しーＪ
- * 此处无Bug
- */
+
 public class BPackageInstallerService extends IBPackageInstallerService.Stub implements ISystemService {
     private static final BPackageInstallerService sService = new BPackageInstallerService();
 

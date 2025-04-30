@@ -22,14 +22,7 @@ import java.util.ArrayList;
 import top.niunaijun.blackbox.entity.pm.InstallOption;
 import top.niunaijun.blackbox.utils.compat.BuildCompat;
 
-/**
- * Created by Milk on 4/21/21.
- * * ∧＿∧
- * (`･ω･∥
- * 丶　つ０
- * しーＪ
- * 此处无Bug
- */
+
 public class BPackage implements Parcelable {
     public ArrayList<Activity> activities = new ArrayList<Activity>(0);
     public ArrayList<Activity> receivers = new ArrayList<Activity>(0);
