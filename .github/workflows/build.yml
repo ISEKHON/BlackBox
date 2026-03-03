@@ -1,4 +1,4 @@
-name: Build Universal APK
+name: Build APKs
 
 on:
   push:
@@ -25,20 +25,13 @@ jobs:
       - name: Grant execute permission to gradlew
         run: chmod +x gradlew
 
-      - name: Build release APK
-        run: ./gradlew assembleRelease --no-daemon
+      - name: Build debug APK
+        run: ./gradlew assembleDebug --no-daemon
 
-      - name: Find universal APK
-        id: find_apk
-        run: |
-          APK=$(find app/build/outputs/apk -name "*universal*.apk" | head -1)
-          echo "apk_path=$APK" >> $GITHUB_OUTPUT
-          echo "Found: $APK"
-
-      - name: Upload universal APK
+      - name: Upload all APKs
         uses: actions/upload-artifact@v4
         with:
-          name: BlackBox-universal-release
-          path: ${{ steps.find_apk.outputs.apk_path }}
+          name: BlackBox-debug
+          path: app/build/outputs/apk/**/*.apk
           if-no-files-found: error
           retention-days: 7
